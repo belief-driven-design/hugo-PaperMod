@@ -1,27 +1,40 @@
 /* Post single
 -------------------------------------------------- */
 .post-header {
-    margin: 24px auto var(--content-gap) auto
+    margin: 24px auto var(--content-gap) auto;
 }
 
 .post-title {
     margin-bottom: 2px;
     font-size: 40px;
-    transform: translateX(-2px);
+    text-align: center;
 }
+
+.post-line-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.post-line {
+    margin: 0.6rem;
+    transition: width 0.3s ease-out;
+    border-top: 0.3rem solid var(--accent);
+    display: block;
+    width: 5.5rem;
+}
+
+.post-header:hover .post-line,
+.post-header:focus .post-line {
+    width: 11rem;
+}
+
 
 .post-meta {
     color: var(--secondary);
-    font-size: 14px;
+    font-size: 0.78rem;
     display: flex;
     flex-wrap: wrap;
-}
-
-.post-meta .i18n_list li {
-    display: inline-flex;
-    list-style: none;
-    margin: auto 3px;
-    box-shadow: 0 1px 0 var(--secondary);
+    justify-content: center;
+    color: var(--secondary);
 }
 
 .post-content {
@@ -258,7 +271,7 @@
 }
 
 .post-footer {
-    margin-top: 56px;
+    margin-top: 2rem;;
 }
 
 .post-tags li {
@@ -269,46 +282,18 @@
 
 .post-tags a {
     display: block;
-    padding-left: 14px;
-    padding-right: 14px;
-    color: var(--secondary);
-    font-size: 14px;
-    line-height: 34px;
-    background: var(--code-bg);
-    border-radius: 4px;
+    font-family: Ubuntu, "Segoe UI", Helvetica, Arial, sans-serif;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.72rem;
+    border-radius: 0.2rem;
     border: 1px solid var(--tertiary);
+    text-decoration: none;
+    transition: all 0.2s ease-out;
 }
 
 .post-tags a:hover {
-    background: var(--border);
-}
-
-.share-buttons {
-    margin-top: var(--gap);
-    border: 1px solid var(--tertiary);
-    padding: var(--radius);
-    border-radius: var(--radius);
-    display: flex;
-    overflow-x: auto;
-}
-
-.share-buttons a {
-    margin-top: 10px;
-}
-
-.share-buttons a:not(:last-of-type) {
-    margin-right: 12px;
-}
-
-.share-buttons a svg {
-    height: 30px;
-    width: 30px;
-    fill: currentColor;
-    transition: transform 0.1s;
-}
-
-.share-buttons svg:hover {
-    transform: scale(0.96);
+    color: var(--accent);
+    border: 1px solid var(--accent);
 }
 
 @media screen and (max-width: 600px) {
@@ -316,4 +301,11 @@
         margin: 0 calc(var(--gap) * -1);
         padding: 0 21px;
     }
+}
+
+.medium-lock {
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    border-left: var(--accent) 0.25rem solid;
+    padding-left: 1rem;
 }

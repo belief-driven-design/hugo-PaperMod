@@ -1,0 +1,31 @@
+.toc {
+    margin-bottom: 40px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.5em;
+
+    details {
+        summary {
+            cursor: zoom-in;
+            margin-left: 20px;
+
+            .summary {
+                display: inline;
+                font-weight: 500;
+            }
+        }
+
+        &[open] summary {
+            cursor: zoom-out;
+        }
+    }
+
+    blockquote {
+        margin: 0 20px;
+        padding: 10px 20px;
+    }
+
+    li ul {
+        margin-left: var(--gap);
+    }
+}

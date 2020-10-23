@@ -1,0 +1,18 @@
+
+.page-line-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.page-line {
+    margin: 0.6rem;
+    transition: width 0.3s ease-out;
+    border-top: 0.3rem solid var(--accent);
+    display: block;
+    width: 5.5rem;
+}
+
+
+.page-header:hover .page-line,
+.page-header:focus .page-line {
+    width: 11rem;
+}

@@ -1,0 +1,4 @@
+{{- $sass := resources.Get "scss/theme.scss" }}
+{{- $style := $sass | resources.ToCSS | minify | fingerprint -}}
+<link href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" rel="preload stylesheet"
+    as="style">

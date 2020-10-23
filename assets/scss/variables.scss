@@ -1,0 +1,85 @@
+$gap: 1.5rem;
+$content-gap: 2rem;
+
+$nav-width: 1024px;
+$main-width: 768px;
+$header-height: 60px;
+$footer-height: 60px;
+$radius: 0.375rem;
+
+$body-font-size: 1.125rem;
+$body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+$theme-light: #fff;
+$theme-light-accent: #359458;
+$theme-light-entry: #fff;
+$theme-light-primary: rgba(0, 0, 0, 0.88);
+$theme-light-secondary: #555;
+$theme-light-tertiary: #979797;
+$theme-light-content: rgba(0, 0, 0, 0.88);
+$theme-light-hljs-bg: #1c1d21;
+$theme-light-code-bg: #f5f5f5;
+$theme-light-border: #eee;
+
+$theme-dark: #1d1e20;
+$theme-dark-accent: #359458;
+$theme-dark-entry: #2e2e33;
+$theme-dark-primary: rgba(255, 255, 255, 0.84);
+$theme-dark-secondary: rgba(255, 255, 255, 0.56);
+$theme-dark-tertiary: rgba(255, 255, 255, 0.16);
+$theme-dark-content: rgba(255, 255, 255, 0.64);
+$theme-dark-hljs-bg: #2e2e33;
+$theme-dark-code-bg: #37383e;
+$theme-dark-border: #5b5d67;
+
+// MAKE VARIABLES AVAILABLE TO CSS
+:root {
+    --gap: #{$gap};
+    --content-gap: #{$content-gap};
+    --nav-width: #{$nav-width};
+    --main-width: #{$main-width};
+    --header-height: #{$header-height};
+    --footer-height: #{$footer-height};
+    --radius: #{$radius};
+
+    --theme: #{$theme-light};
+    --accent: #{$theme-light-accent};
+    --entry: #{$theme-light-entry};
+    --primary: #{$theme-light-primary};
+    --secondary: #{$theme-light-secondary};
+    --tertiary: #{$theme-light-tertiary};
+    --content: #{$theme-light-content};
+
+    --hljs-bg: #{$theme-light-hljs-bg};
+    --code-bg: #{$theme-light-code-bg};
+    --border: #{$theme-light-border};
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --gap: 14px;
+    }
+}
+
+.dark {
+    --theme: #{$theme-dark};
+    --accent: #{$theme-dark-accent};
+    --entry: #{$theme-dark-entry};
+    --primary: #{$theme-dark-primary};
+    --secondary: #{$theme-dark-secondary};
+    --tertiary: #{$theme-dark-tertiary};
+    --content: #{$theme-dark-content};
+
+    --hljs-bg: #{$theme-dark-hljs-bg};
+    --code-bg: #{$theme-dark-code-bg};
+    --border: #{$theme-dark-border};
+
+    &.list {
+        background: var(--theme);
+    }
+}
+
+.list {
+    background: var(--code-bg);
+}

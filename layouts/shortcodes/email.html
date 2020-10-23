@@ -1,0 +1,17 @@
+{{- $param := (.Get 0) }}
+{{- $parts := split $param "@" }}
+{{- $user := index $parts 0 }}
+{{- $host := index $parts 1 }}
+<!--
+{{- $arr := split (.Get 0) "" }}
+{{- range $idx := (seq (len $arr) 1) }}
+{{- index $arr (add $idx -1) }}
+{{- end }}
+-->
+<span class="e-mail" data-user="{{- $arr := split $user "" }}
+{{- range $idx := (seq (len $arr) 1) }}
+{{- index $arr (add $idx -1) }}
+{{- end }}" data-host="{{- $arr := split $host "" }}
+{{- range $idx := (seq (len $arr) 1) }}
+{{- index $arr (add $idx -1) }}
+{{- end }}"></span>

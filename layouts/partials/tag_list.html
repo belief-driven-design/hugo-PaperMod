@@ -1,0 +1,8 @@
+{{- if .Params.tags }}
+<ul class="tag-list">
+    {{- range $tag := .Params.tags }}
+    {{- $href := print (absLangURL "tags/") (urlize $tag) }}
+    <li><a href="{{ $href }}">#{{ $tag }}</a></li>
+    {{- end }}
+</ul>
+{{- end }}

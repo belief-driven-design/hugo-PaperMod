@@ -1,6 +1,4 @@
-{{- if (and (not .Site.Params.disableThemeToggle) (not (or (eq .Site.Params.defaultTheme "light") (eq .Site.Params.defaultTheme "dark")))) }}
 <script>
-    // load memory
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
     } else if (localStorage.getItem("pref-theme") === "light") {
@@ -11,14 +9,6 @@
         }
     }
 </script>
-{{- end }}
-{{- if (and (.Site.Params.disableThemeToggle) (eq .Site.Params.defaultTheme "auto")) }}
-<script>
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-</script>
-{{- end }}
 <noscript>
     <style type="text/css">
         .theme-toggle,
@@ -27,14 +17,11 @@
         }
     </style>
 </noscript>
+
 <header class="header">
     <nav class="nav">
         <p class="logo">
             <a href="{{ "" | absLangURL }}">
-                {{- if .Site.Params.label.icon }}
-                <img src="{{- .Site.Params.label.icon -}}" alt="logo" aria-label="logo"
-                    height="{{- .Site.Params.label.iconHeight | default "30px" -}}">
-                {{- end -}}
                 {{- .Site.Params.label.text | default .Site.Title -}}
             </a>
             {{- if (and (not .Site.Params.disableThemeToggle) (not (or (eq .Site.Params.defaultTheme "light") (eq .Site.Params.defaultTheme "dark")))) }}

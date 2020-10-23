@@ -1,0 +1,61 @@
+.archive {
+    &-posts {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    &-year {
+        margin-top: 40px;
+
+        &:not(:last-of-type) {
+            border-bottom: 2px solid var(--border);
+        }
+    }
+
+    &-month {
+        display: flex;
+        align-items: flex-start;
+        padding: 10px 0;
+
+        &:not(:last-of-type) {
+            border-bottom: 1px solid var(--border);
+        }
+
+        &-header {
+            margin: 25px 0;
+            width: 200px;
+        }
+    }
+
+    &-entry {
+        position: relative;
+        padding: 5px;
+        margin: 10px 0;
+
+        &-title {
+            margin: 5px 0;
+            font-weight: 400;
+        }
+    }
+
+    &-meta {
+        color: var(--secondary);
+        font-size: 14px;
+    }
+
+    &-count {
+        color: var(--secondary);
+        font-size: 14px;
+    }
+}
+@media (max-width: 800px) {
+    .archive {
+        &-month {
+            flex-direction: column;
+        }
+
+        &-year {
+            margin-top: 20px;
+        }
+    }
+}

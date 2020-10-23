@@ -1,0 +1,26 @@
+<div class="post-content">
+    
+    {{- $timeLocked := false }}
+    {{- $days := 0 }}
+    {{- if .Params.medium }}
+        {{- if .Params.medium.locked }}
+            {{- $lockSeconds := mul (int .Params.medium.locked) 86400 }}
+            {{- $remaining := (sub (now.Unix) (.PublishDate.Unix)) }}
+            {{- if lt $remaining $lockSeconds }}
+                {{- $timeLocked = true}}
+                {{- $days = div (sub $lockSeconds $remaining) 86400 }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+  
+    {{- if $timeLocked }}
+        <div class="medium-lock">
+            The full article will be available in {{ $days }} days.<br />
+            In the meantime, read it on <a href="{{ .Params.medium.url }}">Medium</a>.
+        </div>
+        {{ .Summary }}
+    {{- else }}
+        {{ .Content }}
+    {{- end }}
+    
+</div>

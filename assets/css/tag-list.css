@@ -1,20 +1,22 @@
-.terms-tags li {
+
+.tag-list li {
     display: inline-block;
-    margin: 10px;
-    font-weight: 500;
+    margin-right: 3px;
+    margin-bottom: 5px;
 }
 
-.terms-tags a {
+.tag-list a {
+    display: block;
     font-family: Ubuntu, "Segoe UI", Helvetica, Arial, sans-serif;
-    padding: 0.5rem 0.5rem;
+    padding: 0.125rem 0.5rem;
+    font-size: 0.72rem;
     border-radius: 0.2rem;
     border: 1px solid var(--tertiary);
     text-decoration: none;
-    transition: all 0.2s ease-out;}
-
-.terms-tags a:hover {
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    transform: scale(0.96);
+    transition: all 0.2s ease-out;
 }
 
+.tag-list a:hover {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+}
