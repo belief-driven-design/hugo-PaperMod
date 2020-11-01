@@ -19,43 +19,40 @@
 
 {{- range $index, $page := $paginator.Pages }}
 
+<article class="{{ $class }}">
+    <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
+        <header class="entry-header">
+            <time>{{ .Date.Format (default "January 2, 2006" .Site.Params.DateFormat) }}</time>
+            <h2>{{ .Title }}{{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{- end }}</h2>
+            <div class="entry-line"></div>
+        </header>
 
+    {{- if (ne .Site.Params.hideSummary true)}}
+        <section class="entry-content">
+            <p>{{ .Summary | plainify | htmlUnescape }}</p>
+        </section>
+    {{- end }}
+    </a>
 
-    <article class="{{ $class }}">
-        <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}">
-            <header class="entry-header">
-                <time>{{ .Date.Format (default "January 2, 2006" .Site.Params.DateFormat) }}</time>
-                <h2>{{ .Title }}{{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{- end }}</h2>
-                <div class="entry-line"></div>
-            </header>
-
-            {{- if (ne .Site.Params.hideSummary true)}}
-            <section class="entry-content">
-                <p>{{ .Summary | plainify | htmlUnescape }}</p>
-            </section>
-            {{- end }}
-        </a>
-
-        <footer class="entry-footer">    
-            {{- partial "partials/tag_list.html" . }}
-        </footer>
-        </div>
-    </article>
+    <footer class="entry-footer">    
+        {{- partial "partials/tag_list.html" . }}
+    </footer>
+</article>
 {{- end }}
 
 {{- if gt $paginator.TotalPages 1 }}
 <footer class="page-footer">
-  <nav class="pagination">
+    <nav class="pagination">
     {{- if $paginator.HasPrev }}
-    <a class="prev" href="{{ $paginator.Prev.URL }}">« {{ i18n "prev_page" }}</a>
+        <a class="prev" href="{{ $paginator.Prev.URL }}">« {{ i18n "prev_page" }}</a>
     {{- end }}
     {{- if $paginator.HasNext }}
-    <a class="next" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} »</a>
+        <a class="next" href="{{ $paginator.Next.URL }}">{{ i18n "next_page" }} »</a>
     {{- end }}
-  </nav>
+    </nav>
 </footer>
 {{- end }}
 
 {{- partial "social_icons.html" . }}
 
-{{- end  }}{{- /* end main */ -}}
+{{- end  }}

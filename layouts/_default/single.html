@@ -1,65 +1,62 @@
 {{- define "main" }}
 
 <article class="post-single">
-  <header class="post-header">
-    <h1 class="post-title">
-      {{ .Title }}
-      {{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{- end }}
-    </h1>
-    <div class="post-line-wrapper">
-      <div class="post-line">
-    </div>
-  </div>
-    {{- if .Params.hideMeta }}{{ else }}
-    <div class="post-meta">
-      <time>{{ .PublishDate.Format (default "January 2, 2006" .Site.Params.DateFormat) }}</time>
-      {{- if $.Site.Params.ShowReadingTime -}}&nbsp;·&nbsp;
-      {{- $default_txt := print .ReadingTime " " "min" }}
-      {{- i18n "read_time" .ReadingTime | default  $default_txt  }}{{ end }}
-    </div>
-    {{- end}}
-  </header>
+    <header class="post-header">
+        <h1 class="post-title">
+            {{ .Title }}
+            {{- if .Draft }}<div class="entry-isdraft"><sup>&nbsp;&nbsp;[draft]</sup></div>{{- end }}
+        </h1>
+        <div class="post-line-wrapper">
+            <div class="post-line"></div>
+        </div>
+        {{- if .Params.hideMeta }}{{ else }}
+        <div class="post-meta">
+            <time>{{ .PublishDate.Format (default "January 2, 2006" .Site.Params.DateFormat) }}</time>
+            &nbsp;·&nbsp;
+            {{- $default_txt := print .ReadingTime " " "min" }}
+            {{- i18n "read_time" .ReadingTime | default  $default_txt  }}
+        </div>
+        {{- end}}
+    </header>
 
-  {{- if .Params.cover.image }}
-  <figure class="entry-cover">
+{{- if .Params.cover.image }}
+    <figure class="entry-cover">
     {{- if (ne .Params.cover.relative true) }}
-    <img src="{{ .Params.cover.image | absURL }}" alt="{{ .Params.cover.alt | plainify }}">
+        <img src="{{ .Params.cover.image | absURL }}" alt="{{ .Params.cover.alt | plainify }}">
     {{- else}}
-    <img src="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}" alt="{{ .Params.cover.alt | plainify }}">
+        <img src="{{ (path.Join .RelPermalink .Params.cover.image ) | absURL }}" alt="{{ .Params.cover.alt | plainify }}">
     {{- end}}
 
     {{- if .Params.cover.source }}
-    <figcaption>
-      Photo by <a href="{{ .Params.cover.source.link }}" target="_new">{{.Params.cover.source.author }}</a>
-        {{- if .Params.cover.source.site }}
-        on {{ .Params.cover.source.site }}
-        {{- end }}    
-      </figcaption>
+        <figcaption>
+            Photo by <a href="{{ .Params.cover.source.link }}" target="_new">{{.Params.cover.source.author }}</a>
+            {{- if .Params.cover.source.site }}
+             on {{ .Params.cover.source.site }}
+            {{- end }}    
+        </figcaption>
     {{- end }}
-  </figure>
-  {{- end }}
+    </figure>
+{{- end }}
 
-
-
-  {{- if .Params.ShowToc }}
-  <div class="toc">
-    <details {{if .Params.TocOpen }} open{{ end }}>
-      <summary>
-        <div class="summary">{{- i18n "toc" | default "Table of Contents" }}</div>
-      </summary>
-      <blockquote>
-        {{- partial "toc.html" . }}
-      </blockquote>
-    </details>
-  </div>
-  {{- end }}
+{{- if .Params.ShowToc }}
+    <div class="toc">
+        <details {{if .Params.TocOpen }} open{{ end }}>
+            <summary>
+                <div class="summary">{{- i18n "toc" | default "Table of Contents" }}</div>
+            </summary>
+            <blockquote>
+                {{- partial "toc.html" . }}
+            </blockquote>
+        </details>
+    </div>
+{{- end }}
   
-  {{- partial "partials/post_content.html" . }}
+{{- partial "partials/post_content.html" . }}
 
-  <footer class="post-footer">
-    {{- partial "partials/tag_list.html" . }}
-  </footer>
+    <footer class="post-footer">
+        {{- partial "partials/tag_list.html" . }}
+    </footer>
 
 </article>
 
-{{- end  }}{{/* end main */}}
+{{- end  }}
